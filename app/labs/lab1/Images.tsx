@@ -25,9 +25,9 @@ export default function Images() {
       <br />
       <img
         id="wd-your-image"
-        width="400px"
-        alt="A photo I picked to represent this section"
-        src="https://picsum.photos/seed/aayush-cs5610/500/350"
+        width="200px"
+        alt="React logo, the library I'm learning to build Kambaz with in CS5610"
+        src="/images/reactjs.jpg"
       />
 
       <br />
@@ -35,9 +35,9 @@ export default function Images() {
       <br />
       <img
         id="wd-ai-image"
-        width="400px"
-        alt="Sample placeholder photo"
-        src="https://picsum.photos/seed/wd-ai-image/500/350"
+        width="200px"
+        alt="Buzz Aldrin on the Moon during Apollo 11 (NASA)"
+        src="https://images-assets.nasa.gov/image/as11-40-5903/as11-40-5903~orig.jpg"
       />
     </div>
   );

@@ -95,47 +95,47 @@ export default function Tables() {
         <tbody>
           <tr>
             <td>Mon</td>
-            <td align="center">2480</td>
-            <td align="center">205</td>
-            <td align="center">175</td>
-            <td align="center">88</td>
+            <td align="right">2480</td>
+            <td align="right">205</td>
+            <td align="right">175</td>
+            <td align="right">88</td>
           </tr>
           <tr>
             <td>Tue</td>
-            <td align="center">2510</td>
-            <td align="center">210</td>
-            <td align="center">180</td>
-            <td align="center">85</td>
+            <td align="right">2510</td>
+            <td align="right">210</td>
+            <td align="right">180</td>
+            <td align="right">85</td>
           </tr>
           <tr>
             <td>Wed</td>
-            <td align="center">2450</td>
-            <td align="center">200</td>
-            <td align="center">170</td>
-            <td align="center">90</td>
+            <td align="right">2450</td>
+            <td align="right">200</td>
+            <td align="right">170</td>
+            <td align="right">90</td>
           </tr>
           <tr>
             <td>Thu</td>
-            <td align="center">2600</td>
-            <td align="center">215</td>
-            <td align="center">190</td>
-            <td align="center">92</td>
+            <td align="right">2600</td>
+            <td align="right">215</td>
+            <td align="right">190</td>
+            <td align="right">92</td>
           </tr>
           <tr>
             <td>Fri</td>
-            <td align="center">2530</td>
-            <td align="center">208</td>
-            <td align="center">178</td>
-            <td align="center">87</td>
+            <td align="right">2530</td>
+            <td align="right">208</td>
+            <td align="right">178</td>
+            <td align="right">87</td>
           </tr>
         </tbody>
         <tfoot>
           <tr>
             <td>Target</td>
-            <td align="center">~2500</td>
-            <td align="center">200+</td>
-            <td align="center">~175</td>
-            <td align="center">~85</td>
+            <td align="right">~2500</td>
+            <td align="right">200+</td>
+            <td align="right">~175</td>
+            <td align="right">~85</td>
           </tr>
         </tfoot>
       </table>

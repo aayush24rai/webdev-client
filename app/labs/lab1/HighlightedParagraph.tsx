@@ -60,6 +60,13 @@ export default function HighlightedParagraphLab() {
         borderWidth={2}
         borderRadius={999}
       />
+      <HighlightedParagraph
+        text="Props let the same component render with different colors."
+        backgroundColor="lavender"
+        borderColor="purple"
+        borderWidth={3}
+        borderRadius={12}
+      />
     </div>
   );
 }

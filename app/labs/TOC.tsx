@@ -24,9 +24,14 @@ export default function TOC() {
       </li>
       <li id="wd-toc-your-note">Aayush Rai — building this one lab at a time.</li>
       <li>
-        <Link href="/book/ch1" id="wd-toc-book-link">
+        <a
+          href="https://kambaz.dev/book/ch1"
+          id="wd-toc-book-link"
+          target="_blank"
+          rel="noreferrer"
+        >
           Chapter 1
-        </Link>
+        </a>
       </li>
     </ul>
   );

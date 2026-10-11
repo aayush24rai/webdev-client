@@ -68,7 +68,7 @@ export default function HighlightedBoxLab() {
         borderWidth={2}
         borderRadius={10}
       >
-        <h4>Goals</h4>
+        <h4>Aayush Rai – goals for CS5610</h4>
         <ul>
           <li>Finish this assignment before midnight</li>
           <li>Land a quant/finance-adjacent internship</li>
@@ -95,6 +95,14 @@ export default function HighlightedBoxLab() {
             </tr>
           </tbody>
         </table>
+      </HighlightedBox>
+      <HighlightedBox backgroundColor="honeydew" borderColor="seagreen">
+        <h4>Sample nested content</h4>
+        <ul>
+          <li>p</li>
+          <li>table</li>
+          <li>form</li>
+        </ul>
       </HighlightedBox>
     </div>
   );

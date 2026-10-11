@@ -45,13 +45,14 @@ export default function ListTags() {
 
       <h5>HTML tags from this chapter</h5>
       <ul id="wd-ai-html-tags">
-        <li>div</li>
-        <li>span</li>
-        <li>h1</li>
-        <li>p</li>
-        <li>ol</li>
-        <li>ul</li>
-        <li>li</li>
+        <li>h1 – a top-level heading (h6 is the smallest)</li>
+        <li>div – a generic block container for grouping</li>
+        <li>span – a generic inline container</li>
+        <li>p – a paragraph with vertical space around it</li>
+        <li>ol – a numbered list where order matters</li>
+        <li>ul – a bulleted list where order does not matter</li>
+        <li>li – one item inside an ol or ul</li>
+        <li>table – rows and columns of data</li>
       </ul>
     </div>
   );
