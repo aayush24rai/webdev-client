@@ -1,0 +1,92 @@
+[
+  {
+    "_id": "A101",
+    "title": "A1",
+    "course": "RS101",
+    "description": "Analyze the thermodynamics of a rocket combustion chamber and nozzle.",
+    "points": 100,
+    "available": "2024-05-06",
+    "due": "2024-05-13"
+  },
+  {
+    "_id": "A102",
+    "title": "A2",
+    "course": "RS101",
+    "description": "Compare solid, liquid, and hybrid rocket engines.",
+    "points": 100,
+    "available": "2024-05-13",
+    "due": "2024-05-20"
+  },
+  {
+    "_id": "A103",
+    "title": "A3",
+    "course": "RS101",
+    "description": "Design a converging-diverging nozzle.",
+    "points": 100,
+    "available": "2024-05-20",
+    "due": "2024-05-27"
+  },
+  {
+    "_id": "A201",
+    "title": "A1",
+    "course": "RS102",
+    "description": "Compute airfoil lift and drag at several angles of attack.",
+    "points": 100,
+    "available": "2024-05-06",
+    "due": "2024-05-13"
+  },
+  {
+    "_id": "A202",
+    "title": "A2",
+    "course": "RS102",
+    "description": "Compare subsonic and supersonic flow over a wing.",
+    "points": 100,
+    "available": "2024-05-13",
+    "due": "2024-05-20"
+  },
+  {
+    "_id": "A203",
+    "title": "A3",
+    "course": "RS102",
+    "description": "Design thermal protection for re-entry heating.",
+    "points": 100,
+    "available": "2024-05-20",
+    "due": "2024-05-27"
+  },
+  {
+    "_id": "A301",
+    "title": "A1",
+    "course": "RS103",
+    "description": "Select structural materials for a small spacecraft bus.",
+    "points": 100,
+    "available": "2024-05-06",
+    "due": "2024-05-13"
+  },
+  {
+    "_id": "A302",
+    "title": "A2",
+    "course": "RS103",
+    "description": "Plan a Hohmann transfer between two circular orbits.",
+    "points": 100,
+    "available": "2024-05-13",
+    "due": "2024-05-20"
+  },
+  {
+    "_id": "A303",
+    "title": "A3",
+    "course": "RS103",
+    "description": "Integrate CubeSat power, communication, and thermal systems.",
+    "points": 100,
+    "available": "2024-05-20",
+    "due": "2024-05-27"
+  },
+  {
+    "_id": "A204",
+    "title": "A4",
+    "course": "RS102",
+    "description": "Estimate the drag polar of a simple wing from wind tunnel data.",
+    "points": 100,
+    "available": "2024-05-27",
+    "due": "2024-06-03"
+  }
+]
