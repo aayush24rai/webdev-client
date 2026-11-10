@@ -1,5 +1,8 @@
+"use client";
 import Link from "next/link";
-import * as db from "../../../database";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useAssignmentsStore } from "../../../store/assignmentsStore";
 export default function AssignmentEditor({
   cid,
   aid,
@@ -7,7 +10,31 @@ export default function AssignmentEditor({
   cid: string;
   aid: string;
 }) {
-  const assignment = db.assignments.find((a) => a._id === aid);
+  const router = useRouter();
+  const { assignments, addAssignment, updateAssignment } =
+    useAssignmentsStore();
+  const existing = assignments.find((a) => a._id === aid);
+  const [assignment, setAssignment] = useState(
+    existing ?? {
+      _id: aid,
+      title: "New Assignment",
+      course: cid,
+      description: "New Assignment Description",
+      points: 100,
+      available: "2024-05-06",
+      due: "2024-05-13",
+    },
+  );
+  const save = () => {
+    if (existing) {
+      updateAssignment(assignment);
+    } else {
+      const { _id, ...rest } = assignment;
+      void _id;
+      addAssignment({ ...rest, course: cid });
+    }
+    router.push(`/courses/${cid}/assignments`);
+  };
   return (
     <div id="wd-assignments-editor" className="max-w-3xl">
       <label htmlFor="wd-name" className="mb-1 block font-semibold">
@@ -15,7 +42,8 @@ export default function AssignmentEditor({
       </label>
       <input
         id="wd-name"
-        defaultValue={assignment?.title ?? ""}
+        value={assignment.title}
+        onChange={(e) => setAssignment({ ...assignment, title: e.target.value })}
         className="mb-1 w-full rounded border border-neutral-300 px-3 py-2"
       />
       <p id="wd-assignment-id" className="mb-4 text-sm text-neutral-600">
@@ -27,7 +55,10 @@ export default function AssignmentEditor({
       <textarea
         id="wd-description"
         rows={5}
-        defaultValue={assignment?.description ?? ""}
+        value={assignment.description}
+        onChange={(e) =>
+          setAssignment({ ...assignment, description: e.target.value })
+        }
         className="mb-4 w-full rounded border border-neutral-300 px-3 py-2"
       />
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -38,7 +69,10 @@ export default function AssignmentEditor({
           <input
             id="wd-points"
             type="number"
-            defaultValue={assignment?.points ?? 100}
+            value={assignment.points}
+            onChange={(e) =>
+              setAssignment({ ...assignment, points: Number(e.target.value) })
+            }
             className="w-full rounded border border-neutral-300 px-3 py-2"
           />
         </div>
@@ -131,7 +165,8 @@ export default function AssignmentEditor({
         <input
           id="wd-due-date"
           type="date"
-          defaultValue={assignment?.due}
+          value={assignment.due}
+          onChange={(e) => setAssignment({ ...assignment, due: e.target.value })}
           className="mb-3 w-full rounded border border-neutral-300 px-3 py-2"
         />
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -145,7 +180,10 @@ export default function AssignmentEditor({
             <input
               id="wd-available-from"
               type="date"
-              defaultValue={assignment?.available}
+              value={assignment.available}
+              onChange={(e) =>
+                setAssignment({ ...assignment, available: e.target.value })
+              }
               className="w-full rounded border border-neutral-300 px-3 py-2"
             />
           </div>
@@ -159,7 +197,10 @@ export default function AssignmentEditor({
             <input
               id="wd-available-until"
               type="date"
-              defaultValue={assignment?.due}
+              value={assignment.due}
+              onChange={(e) =>
+                setAssignment({ ...assignment, due: e.target.value })
+              }
               className="w-full rounded border border-neutral-300 px-3 py-2"
             />
           </div>
@@ -185,13 +226,14 @@ export default function AssignmentEditor({
         >
           Cancel
         </Link>
-        <Link
-          href={`/courses/${cid}/assignments`}
+        <button
+          type="button"
+          onClick={save}
           id="wd-save"
-          className="rounded border border-red-600 bg-red-600 px-3 py-1.5 text-sm font-medium text-white no-underline"
+          className="rounded border border-red-600 bg-red-600 px-3 py-1.5 text-sm font-medium text-white"
         >
           Save
-        </Link>
+        </button>
       </div>
     </div>
   );

@@ -1,7 +1,10 @@
+"use client";
 import { FaUserCircle } from "react-icons/fa";
 import * as db from "../../../database";
+import { useEnrollmentsStore } from "../../../store/enrollmentsStore";
 export default function PeopleTable({ cid }: { cid: string }) {
-  const { users, enrollments } = db;
+  const { users } = db;
+  const enrollments = useEnrollmentsStore((state) => state.enrollments);
   const enrolled = users.filter((usr) =>
     enrollments.some(
       (enrollment) => enrollment.user === usr._id && enrollment.course === cid,

@@ -1,15 +1,21 @@
+"use client";
 import { FaPlus, FaSearch } from "react-icons/fa";
+import { useParams, useRouter } from "next/navigation";
 import AssignmentItem from "./AssignmentItem";
-import * as db from "../../../database";
-export default async function Assignments({
-  params,
-}: {
-  params: Promise<{ cid: string }>;
-}) {
-  const { cid } = await params;
-  const assignments = db.assignments.filter(
+import { useAssignmentsStore } from "../../../store/assignmentsStore";
+export default function Assignments() {
+  const { cid } = useParams<{ cid: string }>();
+  const router = useRouter();
+  const { assignments: allAssignments, deleteAssignment } =
+    useAssignmentsStore();
+  const assignments = allAssignments.filter(
     (assignment) => assignment.course === cid,
   );
+  const removeAssignment = (aid: string) => {
+    if (window.confirm("Are you sure you want to remove this assignment?")) {
+      deleteAssignment(aid);
+    }
+  };
   return (
     <div id="wd-assignments">
       <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
@@ -32,6 +38,7 @@ export default async function Assignments({
           <button
             id="wd-add-assignment"
             type="button"
+            onClick={() => router.push(`/courses/${cid}/assignments/new`)}
             className="inline-flex items-center gap-1 rounded bg-red-600 px-3 py-1.5 text-sm font-medium text-white"
           >
             <FaPlus /> Assignment
@@ -54,6 +61,7 @@ export default async function Assignments({
             cid={cid}
             aid={assignment._id}
             title={assignment.title}
+            onDelete={removeAssignment}
             details={`Multiple Modules | Not available until ${assignment.available} | Due ${assignment.due} | ${assignment.points} pts`}
           />
         ))}
