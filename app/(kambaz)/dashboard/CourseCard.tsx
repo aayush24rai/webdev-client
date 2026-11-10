@@ -26,51 +26,60 @@ export default function CourseCard({
           alt={name}
           className="h-40 w-full object-cover"
         />
-        <div className="px-4 pt-4">
+        <div className="p-4">
           <h5 className="wd-dashboard-course-title m-0 mb-2 truncate text-lg font-semibold whitespace-nowrap">
             {name}
           </h5>
           <p className="wd-dashboard-course-description m-0 mb-3 h-[100px] overflow-hidden text-sm text-neutral-600">
             {description}
           </p>
+          <div className="flex flex-wrap items-center gap-2">
+            <button
+              type="button"
+              className="rounded bg-blue-600 px-3 py-1.5 text-sm font-medium text-white"
+            >
+              Go
+            </button>
+            {enrollment && (
+              <button
+                type="button"
+                id="wd-enroll-course-click"
+                onClick={(event) => {
+                  event.preventDefault();
+                  enrollment.toggle();
+                }}
+                className={`rounded px-3 py-1.5 text-sm font-medium text-white ${
+                  enrollment.enrolled ? "bg-red-600" : "bg-green-600"
+                }`}
+              >
+                {enrollment.enrolled ? "Unenroll" : "Enroll"}
+              </button>
+            )}
+            <button
+              type="button"
+              id="wd-delete-course-click"
+              onClick={(event) => {
+                event.preventDefault();
+                onDelete(_id);
+              }}
+              className="ms-auto rounded bg-red-600 px-3 py-1.5 text-sm font-medium text-white"
+            >
+              Delete
+            </button>
+            <button
+              type="button"
+              id="wd-edit-course-click"
+              onClick={(event) => {
+                event.preventDefault();
+                onEdit(course);
+              }}
+              className="rounded bg-yellow-400 px-3 py-1.5 text-sm font-medium text-neutral-900"
+            >
+              Edit
+            </button>
+          </div>
         </div>
       </Link>
-      <div className="flex flex-wrap items-center gap-2 px-4 pb-4">
-        <Link
-          href={`/courses/${_id}/home`}
-          className="inline-flex items-center justify-center rounded bg-blue-600 px-3 py-1.5 text-sm font-medium text-white no-underline"
-        >
-          Go
-        </Link>
-        {enrollment && (
-          <button
-            type="button"
-            id="wd-enroll-course-click"
-            onClick={enrollment.toggle}
-            className={`rounded px-3 py-1.5 text-sm font-medium text-white ${
-              enrollment.enrolled ? "bg-red-600" : "bg-green-600"
-            }`}
-          >
-            {enrollment.enrolled ? "Unenroll" : "Enroll"}
-          </button>
-        )}
-        <button
-          type="button"
-          id="wd-delete-course-click"
-          onClick={() => onDelete(_id)}
-          className="ms-auto rounded bg-red-600 px-3 py-1.5 text-sm font-medium text-white"
-        >
-          Delete
-        </button>
-        <button
-          type="button"
-          id="wd-edit-course-click"
-          onClick={() => onEdit(course)}
-          className="rounded bg-yellow-400 px-3 py-1.5 text-sm font-medium text-neutral-900"
-        >
-          Edit
-        </button>
-      </div>
     </div>
   );
 }
